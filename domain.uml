@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>me.wedding.dytwedding.domain</OriginalElement>
+  <nodes>
+    <node x="173.0" y="563.0">me.wedding.dytwedding.domain.Person</node>
+    <node x="347.75" y="873.0">me.wedding.dytwedding.domain.EngagementSession</node>
+    <node x="421.25" y="1147.0">me.wedding.dytwedding.domain.Wedding</node>
+    <node x="18.25" y="850.0">me.wedding.dytwedding.domain.Couple</node>
+    <node x="615.6346153846154" y="0.0">me.wedding.dytwedding.domain.WeddingOptions</node>
+    <node x="559.75" y="827.0">me.wedding.dytwedding.domain.Contract</node>
+    <node x="843.75" y="873.0">me.wedding.dytwedding.domain.Appointment</node>
+    <node x="0.0" y="563.0">me.wedding.dytwedding.domain.Address</node>
+    <node x="607.3525641025641" y="574.5">me.wedding.dytwedding.domain.Forfait</node>
+    <node x="1084.75" y="735.0">me.wedding.dytwedding.domain.Planning</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.EngagementSession">
+      <point x="-24.416666666666742" y="-118.5" />
+      <point x="543.3333333333333" y="1107.0" />
+      <point x="443.75" y="1107.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Couple" target="me.wedding.dytwedding.domain.Person">
+      <point x="58.25" y="-61.0" />
+      <point x="193.0" y="715.0" />
+      <point x="227.75" y="715.0" />
+      <point x="-54.75" y="61.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.Person">
+      <point x="-73.25" y="-118.5" />
+      <point x="494.5" y="1117.0" />
+      <point x="337.25" y="1117.0" />
+      <point x="54.75" y="61.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Forfait" target="me.wedding.dytwedding.domain.WeddingOptions">
+      <point x="0.0" y="-49.5" />
+      <point x="653.3525641025641" y="538.0" />
+      <point x="645.801282051282" y="538.0" />
+      <point x="-60.33333333333337" y="256.5" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.Contract">
+      <point x="24.41666666666663" y="-118.5" />
+      <point x="592.1666666666666" y="1107.0" />
+      <point x="691.75" y="1107.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Contract" target="me.wedding.dytwedding.domain.Forfait">
+      <point x="-99.0" y="-84.0" />
+      <point x="592.75" y="715.0" />
+      <point x="630.3525641025641" y="715.0" />
+      <point x="-23.0" y="49.5" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.Planning">
+      <point x="122.08333333333337" y="-118.5" />
+      <point x="689.8333333333334" y="1127.0" />
+      <point x="1213.25" y="1127.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.Appointment">
+      <point x="73.25" y="-118.5" />
+      <point x="641.0" y="1117.0" />
+      <point x="954.25" y="1117.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Contract" target="me.wedding.dytwedding.domain.WeddingOptions">
+      <point x="33.0" y="-84.0" />
+      <point x="724.75" y="715.0" />
+      <point x="709.8525641025641" y="715.0" />
+      <point x="709.8525641025641" y="538.0" />
+      <point x="706.1346153846154" y="538.0" />
+      <point x="0.0" y="256.5" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Couple" target="me.wedding.dytwedding.domain.Address">
+      <point x="-58.25" y="-61.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="me.wedding.dytwedding.domain.Wedding" target="me.wedding.dytwedding.domain.Couple">
+      <point x="-122.08333333333337" y="-118.5" />
+      <point x="445.66666666666663" y="1127.0" />
+      <point x="134.75" y="1127.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6047008547008547" x="694.0" y="692.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
