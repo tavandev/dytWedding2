@@ -167,6 +167,7 @@ public class BootDatas implements CommandLineRunner {
                 .build();
     }
 
+
     @Override
     public void run(String... args) throws Exception {
         repository.deleteAll()

@@ -3,7 +3,6 @@ package me.wedding.dytwedding.domain;
 import lombok.*;
 
 import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Builder
