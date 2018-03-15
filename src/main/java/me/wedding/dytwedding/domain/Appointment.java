@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Appointment {
 
     @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
