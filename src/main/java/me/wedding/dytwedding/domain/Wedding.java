@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
+@Data
 public class Wedding {
 
     private String weddingId;
