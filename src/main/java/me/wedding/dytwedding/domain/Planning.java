@@ -17,5 +17,5 @@ public class Planning {
     private Appointment townhallLocation;
     private Appointment civilCeremonyLocation;
     private Appointment cocktailLocation;
-    private Appointment receptiobnLocation;
+    private Appointment receptionLocation;
 }
