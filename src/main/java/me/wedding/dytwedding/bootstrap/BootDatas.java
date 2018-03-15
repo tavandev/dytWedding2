@@ -136,7 +136,7 @@ public class BootDatas implements CommandLineRunner {
                 .cocktailLocation(cocktailLocation)
                 .coupleShotsLocation(coupleShotsLocation)
                 .gettingReady(gettingReady)
-                .receptiobnLocation(receptiobnLocation)
+                .receptionLocation(receptiobnLocation)
                 .ReligiousCeremonyLocation(ReligiousCeremonyLocation)
                 .townhallLocation(townhallLocation)
                 .build();
