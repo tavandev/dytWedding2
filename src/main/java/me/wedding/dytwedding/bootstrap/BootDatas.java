@@ -75,7 +75,7 @@ public class BootDatas implements CommandLineRunner {
                 .build();
 
         this.bride = Person.builder()
-                .fistName("Juliette")
+                .firstName("Juliette")
                 .lastName("Capulet")
                 .email("juju@shakespeare.co.uk")
                 .phoneNumbers(Arrays.asList("un", "deux"))
@@ -83,21 +83,21 @@ public class BootDatas implements CommandLineRunner {
 
 
         this.groom = Person.builder()
-                .fistName("Romeo")
+                .firstName("Romeo")
                 .lastName("Montaigu")
                 .email("roro@shakespeare.co.uk")
                 .phoneNumbers(Collections.singletonList("nu"))
                 .build();
 
         this.witness1 = Person.builder()
-                .fistName("William")
+                .firstName("William")
                 .lastName("Shakespeare")
                 .email("willy@shakespeare.co.uk")
                 .phoneNumbers(Collections.singletonList("123"))
                 .build();
 
         this.witness2 = Person.builder()
-                .fistName("Frère")
+                .firstName("Frère")
                 .lastName("Laurent")
                 .email("lolo@shakespeare.co.uk")
                 .phoneNumbers(Collections.singletonList("134523"))

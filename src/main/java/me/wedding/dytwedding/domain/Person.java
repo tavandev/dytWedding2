@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class Person {
-    private String fistName;
+    private String firstName;
     private String lastName;
 
     private List<String> phoneNumbers;
