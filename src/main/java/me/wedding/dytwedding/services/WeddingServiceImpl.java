@@ -1,6 +1,7 @@
 package me.wedding.dytwedding.services;
 
 import me.wedding.dytwedding.domain.Wedding;
+import me.wedding.dytwedding.exceptions.WeddingNotFoundException;
 import me.wedding.dytwedding.repositories.WeddingRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -26,6 +27,6 @@ public class WeddingServiceImpl implements WeddingService {
 
     @Override
     public Mono<Wedding> findWeddingById(String id) {
-        return repository.findById(id);
+        return repository.findById(id).switchIfEmpty(Mono.error(new WeddingNotFoundException("Wedding " + id + " not found")));
     }
 }

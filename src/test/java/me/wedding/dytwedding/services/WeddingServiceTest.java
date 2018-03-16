@@ -2,6 +2,7 @@ package me.wedding.dytwedding.services;
 
 import me.wedding.dytwedding.BootDatasTests;
 import me.wedding.dytwedding.domain.Wedding;
+import me.wedding.dytwedding.exceptions.WeddingNotFoundException;
 import me.wedding.dytwedding.repositories.WeddingRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +14,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 class WeddingServiceTest {
@@ -59,5 +62,14 @@ class WeddingServiceTest {
                 .verifyComplete();
 
         Mockito.verify(weddingRepository).findById(ArgumentMatchers.anyString());
+    }
+
+    @Test
+    void WeddingByIdNotFoundThrowWeddingNotFoundException() {
+        Mockito.when(weddingRepository.findById("un")).thenThrow(new WeddingNotFoundException("Error"));
+
+        assertThrows(WeddingNotFoundException.class, () -> weddingService.findWeddingById("un"));
+
+        Mockito.verify(weddingRepository).findById("un");
     }
 }

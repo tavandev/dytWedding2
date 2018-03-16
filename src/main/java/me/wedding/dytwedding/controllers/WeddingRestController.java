@@ -1,6 +1,7 @@
 package me.wedding.dytwedding.controllers;
 
 import me.wedding.dytwedding.domain.Wedding;
+import me.wedding.dytwedding.exceptions.WeddingNotFoundException;
 import me.wedding.dytwedding.services.WeddingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,11 @@ public class WeddingRestController {
     @GetMapping("/wedding/{id}")
     public Mono<Wedding> findWeddingById(@PathVariable String id) {
         return weddingService.findWeddingById(id);
+    }
+
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    @ExceptionHandler({WeddingNotFoundException.class})
+    public String okl(Exception ex) {
+        return ex.getMessage();
     }
 }
