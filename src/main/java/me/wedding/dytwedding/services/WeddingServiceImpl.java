@@ -23,4 +23,9 @@ public class WeddingServiceImpl implements WeddingService {
     public Mono<Wedding> saveWedding(Wedding wedding) {
         return repository.save(wedding);
     }
+
+    @Override
+    public Mono<Wedding> findWeddingById(String id) {
+        return repository.findById(id);
+    }
 }

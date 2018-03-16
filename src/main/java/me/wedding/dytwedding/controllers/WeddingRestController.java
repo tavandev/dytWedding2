@@ -29,4 +29,10 @@ public class WeddingRestController {
     public Mono<Wedding> addWedding(@RequestBody Wedding wedding) {
         return weddingService.saveWedding(wedding);
     }
+
+    @CrossOrigin
+    @GetMapping("/wedding/{id}")
+    public Mono<Wedding> findWeddingById(@PathVariable String id) {
+        return weddingService.findWeddingById(id);
+    }
 }

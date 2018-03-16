@@ -8,4 +8,6 @@ public interface WeddingService {
     Flux<Wedding> getAllWeddings();
 
     Mono<Wedding> saveWedding(Wedding wedding);
+
+    Mono<Wedding> findWeddingById(String id);
 }

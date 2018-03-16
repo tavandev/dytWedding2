@@ -29,7 +29,9 @@ class WeddingRepositoryTest {
 
         StepVerifier.create(repository.deleteAll()).verifyComplete();
 
-        StepVerifier.create(Flux.just(wedding1, wedding2).flatMap(repository::save)).expectNextCount(2L).verifyComplete();
+        StepVerifier.create(Flux.just(wedding1, wedding2).flatMap(repository::save))
+                .expectNextCount(2L)
+                .verifyComplete();
     }
 
     @Test
@@ -45,6 +47,16 @@ class WeddingRepositoryTest {
 
         StepVerifier.create(repository.save(bootDatasTests.getWedding1()))
                 .expectNext(bootDatasTests.getWedding1())
+                .verifyComplete();
+    }
+
+    @Test
+    void findWeddingById() {
+        Wedding wedding1 = repository.findAll().blockFirst();
+        String id = wedding1.getWeddingId();
+
+        StepVerifier.create(repository.findById(id))
+                .expectNext(wedding1)
                 .verifyComplete();
     }
 }

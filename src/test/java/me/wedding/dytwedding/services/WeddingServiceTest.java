@@ -49,4 +49,15 @@ class WeddingServiceTest {
 
         Mockito.verify(weddingRepository).save(ArgumentMatchers.any());
     }
+
+    @Test
+    void findWeddingById() {
+        Mockito.when(weddingRepository.findById(ArgumentMatchers.anyString())).thenReturn(Mono.just(datasForTest.getWedding2()));
+
+        StepVerifier.create(weddingService.findWeddingById(ArgumentMatchers.anyString()))
+                .expectNext(datasForTest.getWedding2())
+                .verifyComplete();
+
+        Mockito.verify(weddingRepository).findById(ArgumentMatchers.anyString());
+    }
 }
