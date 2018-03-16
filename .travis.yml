@@ -1,0 +1,32 @@
+sudo: true
+language: java
+jdk:
+- oraclejdk8
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+notifications:
+  slack: dyti234:6KAy6KgKN7R8TJbsIxsgukNF
+  email:
+  - davidyannick@gmail.com
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+services:
+  - docker
+  - mongodb
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
