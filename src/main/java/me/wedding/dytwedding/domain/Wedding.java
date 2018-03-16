@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Document
 @Data
+@EqualsAndHashCode
 public class Wedding {
 
     @Id

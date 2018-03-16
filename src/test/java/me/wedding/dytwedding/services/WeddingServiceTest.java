@@ -5,11 +5,13 @@ import me.wedding.dytwedding.domain.Wedding;
 import me.wedding.dytwedding.repositories.WeddingRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 @ExtendWith(SpringExtension.class)
@@ -25,7 +27,8 @@ class WeddingServiceTest {
 
     @Test
     void getAllWeddings() {
-        Mockito.when(weddingRepository.findAll()).thenReturn(Flux.just(datasForTest.getWedding1(), datasForTest.getWedding2()));
+        Mockito.when(weddingRepository.findAll())
+                .thenReturn(Flux.just(datasForTest.getWedding1(), datasForTest.getWedding2()));
 
         Flux<Wedding> weddingFlux = weddingService.getAllWeddings();
 
@@ -34,5 +37,16 @@ class WeddingServiceTest {
                 .verifyComplete();
 
         Mockito.verify(weddingRepository).findAll();
+    }
+
+    @Test
+    void saveWedding() {
+        Mockito.when(weddingRepository.save(ArgumentMatchers.any())).thenReturn(Mono.just(datasForTest.getWedding1()));
+
+        StepVerifier.create(weddingService.saveWedding(datasForTest.getWedding1()))
+                .expectNext(datasForTest.getWedding1())
+                .verifyComplete();
+
+        Mockito.verify(weddingRepository).save(ArgumentMatchers.any());
     }
 }

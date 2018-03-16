@@ -38,4 +38,13 @@ class WeddingRepositoryTest {
                 .expectNextCount(2L)
                 .verifyComplete();
     }
+
+    @Test
+    void saveWedding() {
+        StepVerifier.create(repository.deleteAll()).verifyComplete();
+
+        StepVerifier.create(repository.save(bootDatasTests.getWedding1()))
+                .expectNext(bootDatasTests.getWedding1())
+                .verifyComplete();
+    }
 }

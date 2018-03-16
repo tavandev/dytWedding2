@@ -2,6 +2,7 @@ package me.wedding.dytwedding.controllers;
 
 import me.wedding.dytwedding.domain.Wedding;
 import me.wedding.dytwedding.services.WeddingService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -24,6 +25,7 @@ public class WeddingRestController {
 
     @CrossOrigin
     @PostMapping("/wedding/add")
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Mono<Wedding> addWedding(@RequestBody Wedding wedding) {
         return weddingService.saveWedding(wedding);
     }
