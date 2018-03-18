@@ -4,6 +4,8 @@ jdk:
 - oraclejdk8
 install:
 - mvn clean package
+script: 
+- mvn test
 
 notifications:
   slack: dyti234:6KAy6KgKN7R8TJbsIxsgukNF
