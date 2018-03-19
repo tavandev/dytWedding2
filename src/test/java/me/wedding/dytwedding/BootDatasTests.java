@@ -22,7 +22,7 @@ public class BootDatasTests {
     private Address address1 = null;
     private Address address2 = null;
     private Contract contract1 = null;
-    private EngagementSession engagementSession = null;
+    private Appointment engagementSession = null;
     private Appointment appointment1 = null;
     private Appointment appointment2 = null;
     private Person bride = null;
@@ -34,7 +34,7 @@ public class BootDatasTests {
 
     private Appointment gettingReady;
     private Appointment coupleShotsLocation;
-    private Appointment ReligiousCeremonyLocation;
+    private Appointment ReligiousCeremony;
     private Appointment townhallLocation;
     private Appointment civilCeremonyLocation;
     private Appointment cocktailLocation;
@@ -57,7 +57,7 @@ public class BootDatasTests {
                 .appointmentLocation("Reception")
                 .build();
 
-        this.ReligiousCeremonyLocation = Appointment.builder()
+        this.ReligiousCeremony = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Eglise")
                 .build();
@@ -119,9 +119,9 @@ public class BootDatasTests {
                 .city("Vérone")
                 .build();
 
-        this.engagementSession = EngagementSession.builder()
-                .sessionDate(LocalDateTime.of(2018, 1, 1, 13, 34))
-                .sessionLocation("Potiers")
+        this.engagementSession = Appointment.builder()
+                .appointmentDate(LocalDateTime.of(2018, 1, 1, 13, 34))
+                .appointmentLocation("Potiers")
                 .build();
 
         this.appointment1 = Appointment.builder()
@@ -135,13 +135,13 @@ public class BootDatasTests {
                 .build();
 
         this.planning1 = Planning.builder()
-                .civilCeremonyLocation(civilCeremonyLocation)
-                .cocktailLocation(cocktailLocation)
-                .coupleShotsLocation(coupleShotsLocation)
+                .civilCeremony(civilCeremonyLocation)
+                .cocktail(cocktailLocation)
+                .coupleShots(coupleShotsLocation)
                 .gettingReady(gettingReady)
-                .receptionLocation(receptiobnLocation)
-                .ReligiousCeremonyLocation(ReligiousCeremonyLocation)
-                .townhallLocation(townhallLocation)
+                .reception(receptiobnLocation)
+                .religiousCeremony(ReligiousCeremony)
+                .townhall(townhallLocation)
                 .build();
 
         this.couple = Couple.builder()

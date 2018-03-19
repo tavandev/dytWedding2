@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class CustomLocalDateTimeDeserializer extends JsonDeserializer {
+public class CustomLocalDateTimeDeserializer extends JsonDeserializer<LocalDateTime> {
     @Override
-    public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         final ObjectCodec oc = jsonParser.getCodec();
         final TextNode node = oc.readTree(jsonParser);
         return LocalDateTime.parse(node.textValue(), CustomLocalDateTimeFormat.formatter);

@@ -18,7 +18,7 @@ public class BootDatas implements CommandLineRunner {
     private Address address1 = null;
     private Address address2 = null;
     private Contract contract1 = null;
-    private EngagementSession engagementSession = null;
+    private Appointment engagementSession = null;
     private Appointment appointment1 = null;
     private Appointment appointment2 = null;
     private Person bride = null;
@@ -29,12 +29,12 @@ public class BootDatas implements CommandLineRunner {
     private Couple couple = null;
 
     private Appointment gettingReady;
-    private Appointment coupleShotsLocation;
-    private Appointment ReligiousCeremonyLocation;
-    private Appointment townhallLocation;
-    private Appointment civilCeremonyLocation;
-    private Appointment cocktailLocation;
-    private Appointment receptiobnLocation;
+    private Appointment coupleShots;
+    private Appointment religiousCeremony;
+    private Appointment townhall;
+    private Appointment civilCeremony;
+    private Appointment cocktail;
+    private Appointment reception;
     private WeddingRepository repository;
 
     public BootDatas(WeddingRepository repository) {
@@ -44,32 +44,32 @@ public class BootDatas implements CommandLineRunner {
                 .appointmentLocation("Maison")
                 .build();
 
-        this.coupleShotsLocation = Appointment.builder()
+        this.coupleShots = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Lieu des photos")
                 .build();
 
-        this.receptiobnLocation = Appointment.builder()
+        this.reception = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Reception")
                 .build();
 
-        this.ReligiousCeremonyLocation = Appointment.builder()
+        this.religiousCeremony = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Eglise")
                 .build();
 
-        this.townhallLocation = Appointment.builder()
+        this.townhall = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Mairie")
                 .build();
 
-        this.civilCeremonyLocation = Appointment.builder()
+        this.civilCeremony = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Civil")
                 .build();
 
-        this.cocktailLocation = Appointment.builder()
+        this.cocktail = Appointment.builder()
                 .appointmentDate(LocalDateTime.of(2018, 1, 1, 1, 1))
                 .appointmentLocation("Coktail")
                 .build();
@@ -116,9 +116,9 @@ public class BootDatas implements CommandLineRunner {
                 .city("Vérone")
                 .build();
 
-        this.engagementSession = EngagementSession.builder()
-                .sessionDate(LocalDateTime.of(2018, 1, 1, 13, 34))
-                .sessionLocation("Potiers")
+        this.engagementSession = Appointment.builder()
+                .appointmentDate(LocalDateTime.of(2018, 1, 1, 13, 34))
+                .appointmentLocation("Potiers")
                 .build();
 
         this.appointment1 = Appointment.builder()
@@ -132,13 +132,13 @@ public class BootDatas implements CommandLineRunner {
                 .build();
 
         this.planning1 = Planning.builder()
-                .civilCeremonyLocation(civilCeremonyLocation)
-                .cocktailLocation(cocktailLocation)
-                .coupleShotsLocation(coupleShotsLocation)
+                .civilCeremony(civilCeremony)
+                .cocktail(cocktail)
+                .coupleShots(coupleShots)
                 .gettingReady(gettingReady)
-                .receptionLocation(receptiobnLocation)
-                .ReligiousCeremonyLocation(ReligiousCeremonyLocation)
-                .townhallLocation(townhallLocation)
+                .reception(reception)
+                .religiousCeremony(religiousCeremony)
+                .townhall(townhall)
                 .build();
 
         this.couple = Couple.builder()

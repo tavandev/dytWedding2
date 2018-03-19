@@ -26,7 +26,7 @@ public class Wedding {
 
     private List<Appointment> appointments;
 
-    private EngagementSession engagementSession;
+    private Appointment engagementSession;
 
     private List<Person> witnesses;
 

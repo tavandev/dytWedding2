@@ -13,10 +13,10 @@ public class Planning {
 
     // Locations and hours
     private Appointment gettingReady;
-    private Appointment coupleShotsLocation;
-    private Appointment ReligiousCeremonyLocation;
-    private Appointment townhallLocation;
-    private Appointment civilCeremonyLocation;
-    private Appointment cocktailLocation;
-    private Appointment receptionLocation;
+    private Appointment coupleShots;
+    private Appointment religiousCeremony;
+    private Appointment townhall;
+    private Appointment civilCeremony;
+    private Appointment cocktail;
+    private Appointment reception;
 }

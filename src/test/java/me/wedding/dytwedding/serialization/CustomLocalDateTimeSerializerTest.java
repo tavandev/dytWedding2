@@ -28,7 +28,7 @@ class CustomLocalDateTimeSerializerTest {
     @Test
     void serialize() throws JsonProcessingException {
         ObjectMapper map = new ObjectMapper();
-        String json = "{\"appointmentDate\":\"01/01/2018 15:10\",\"appointmentLocation\":\"Londres\"}";
+        String json = "{\"appointmentDate\":\"2018-01-01T15:10:00.000Z\",\"appointmentLocation\":\"Londres\"}";
         String x = map.writeValueAsString(appointment);
         assertThat(x).isEqualToIgnoringCase(json);
     }
