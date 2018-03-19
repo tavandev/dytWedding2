@@ -21,7 +21,7 @@ public enum WeddingOptions {
     GALLERIEWEB(112.00, "Galerie web", 12),
     CLEUSBCOFFRET(113.00, "Clé usb + coffret + tirages", 13),
     PHOTOBOOTH(115.00, "Photobooth", 14),
-    LIVRELUXE(114.00, "livre photo luxe", 15),
+    LIVRELUXE(114.00, "Livre photo luxe", 15),
     SEANCEDAYAFTER(110.00, "Séance photo de couple après le mariage", 16),
     SEANCETRASHTHEDRESS(111.00, "Séance trash the dress", 17),
     LARGEPRINT(116.00, "Grand tirage sur toile", 18);

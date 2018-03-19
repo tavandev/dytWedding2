@@ -1,6 +1,8 @@
 package me.wedding.dytwedding.domain;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 import org.springframework.data.annotation.AccessType;
 
@@ -18,17 +20,22 @@ public class Contract {
     @Getter
     @Setter
     @NonNull
+    @JsonSerialize(using = ForfaitSerializer.class)
+    @JsonDeserialize(using = ForfaitDeserializer.class)
     private Forfait forfait;
 
     @Getter
     @Setter
     @Builder.Default
+    @JsonSerialize(using = WeddingOptionsSerializer.class)
+    @JsonDeserialize(using = WeddingOptionsDeserializer.class)
     private EnumSet<WeddingOptions> options = EnumSet.noneOf(WeddingOptions.class);
 
 
     @Getter
     @Setter
-    private Double deposit;
+    @Builder.Default
+    private Double deposit = 0.0;
 
     @Getter
     @Setter
