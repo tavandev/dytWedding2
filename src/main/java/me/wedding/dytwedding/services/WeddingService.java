@@ -10,4 +10,8 @@ public interface WeddingService {
     Mono<Wedding> saveWedding(Wedding wedding);
 
     Mono<Wedding> findWeddingById(String id);
+
+    Mono<Wedding> updateWedding(String id, Wedding wedding);
+
+    Mono<Void> deleteWedding(String id);
 }

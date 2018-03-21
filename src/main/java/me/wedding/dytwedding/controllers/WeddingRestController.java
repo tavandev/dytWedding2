@@ -37,9 +37,23 @@ public class WeddingRestController {
         return weddingService.findWeddingById(id);
     }
 
+    @PutMapping("/wedding/{id}")
+    @ResponseStatus(value = HttpStatus.ACCEPTED)
+    public Mono<Wedding> updateWedding(@PathVariable String id, @RequestBody Wedding wedding) {
+        return weddingService.updateWedding(id, wedding);
+    }
+
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     @ExceptionHandler({WeddingNotFoundException.class})
     public String okl(Exception ex) {
         return ex.getMessage();
     }
+
+    @DeleteMapping("/wedding/{id}")
+    @ResponseStatus(value = HttpStatus.ACCEPTED)
+    public Mono<Void> deleteWedding(@PathVariable String id) {
+        return weddingService.deleteWedding(id);
+    }
+
+
 }
