@@ -3,9 +3,9 @@ language: java
 jdk:
 - oraclejdk8
 install:
-- mvn clean package
+- gradle build jar
 script: 
-- mvn test
+- gradle test
 
 notifications:
   slack: dyti234:6KAy6KgKN7R8TJbsIxsgukNF
