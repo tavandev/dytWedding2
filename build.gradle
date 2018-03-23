@@ -1,0 +1,66 @@
+buildscript {
+	ext {
+		springBootVersion 	 = '2.0.0.RELEASE'
+		junitVintageVersion  = '5.1.0'
+		junitPlatformVersion = '1.1.0'	
+		junitJupiterVersion  = '5.1.0'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'jacoco'
+apply plugin: 'idea'
+
+group = 'me.wedding'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+test {
+	useJUnitPlatform()
+
+	testLogging {
+		events 'passed', 'skipped', 'failed'
+	}
+
+	reports {
+		html.enabled = true
+	}
+
+	finalizedBy jacocoTestReport
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+	compile('org.springframework.boot:spring-boot-starter-webflux')
+	
+    annotationProcessor("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok")
+    testAnnotationProcessor("org.projectlombok:lombok")
+    testCompileOnly("org.projectlombok:lombok")
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit'
+	}
+
+	testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+	testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+	
+	testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+	testCompile('io.projectreactor:reactor-test')
+}
