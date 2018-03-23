@@ -1,17 +1,16 @@
 buildscript {
-	ext {
-		springBootVersion 	 = '2.0.0.RELEASE'
-		junitVintageVersion  = '5.1.0'
-		junitPlatformVersion = '1.1.0'	
-		junitJupiterVersion  = '5.1.0'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.0.RELEASE'
+        junitVintageVersion = '5.1.0'
+        junitPlatformVersion = '1.1.0'
+        junitJupiterVersion = '5.1.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -27,40 +26,41 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 
-	testLogging {
-		events 'passed', 'skipped', 'failed'
-	}
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
 
-	reports {
-		html.enabled = true
-	}
+    reports {
+        html.enabled = true
+    }
 
-	finalizedBy jacocoTestReport
+    finalizedBy jacocoTestReport
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
-	compile('org.springframework.boot:spring-boot-starter-webflux')
-	
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+
     annotationProcessor("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok")
     testAnnotationProcessor("org.projectlombok:lombok")
     testCompileOnly("org.projectlombok:lombok")
-	
-	testCompile('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'junit'
-	}
 
-	testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
-	testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
-	
-	testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
-	testCompile('io.projectreactor:reactor-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit'
+    }
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitJupiterVersion}")
+    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+
+    testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+    testCompile('io.projectreactor:reactor-test')
 }
