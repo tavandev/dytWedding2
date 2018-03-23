@@ -2,10 +2,7 @@ sudo: true
 language: java
 jdk:
 - oraclejdk8
-install:
-- gradle build jar
-script: 
-- gradle test
+
 
 notifications:
   slack: dyti234:6KAy6KgKN7R8TJbsIxsgukNF
